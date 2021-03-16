@@ -63,6 +63,7 @@ private:
 	Poo poos[nPoo];
 	bool isStarted = false;
 	bool isGameOver = false;
+	bool isMouseOn = true;
 	SoundEffect pickup = SoundEffect( { L"Sounds\\coin.wav" } );
 	Sound title = Sound( L"Sounds\\title.wav" );
 	SoundEffect fart = SoundEffect( 

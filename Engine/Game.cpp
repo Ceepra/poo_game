@@ -55,7 +55,14 @@ void Game::UpdateModel()
 	goal.UpdateColor();
 	if( isStarted && !isGameOver )
 	{
-		dude.Update( wnd.kbd,dt );
+		if (isMouseOn)
+		{
+			dude.UpdateMouse(wnd.mouse,dt);
+		}
+		else
+		{
+			dude.Update(wnd.kbd, dt);
+		}
 		dude.ClampToScreen();
 
 		for( int i = 0; i < nPoo; ++i )

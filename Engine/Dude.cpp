@@ -369,6 +369,16 @@ void Dude::Update( const Keyboard & kbd,float dt )
 	pos += moveDir * speed* dt;
 }
 
+void Dude::UpdateMouse(const Mouse& mouse, float dt)
+{
+	if (mouse.LeftIsPressed())
+	{
+		moveDir = Vec2( float(mouse.GetPosX()) , float(mouse.GetPosY())) - pos ;
+	}
+	moveDir.Normalize();
+	pos += moveDir * speed * dt;
+}
+
 Vec2 Dude::GetPos() const
 {
 	return pos;
