@@ -351,20 +351,22 @@ void Dude::Update( const Keyboard & kbd,float dt )
 {
 	if( kbd.KeyIsPressed( VK_RIGHT ) )
 	{
-		pos.x += speed * dt;
+		moveDir.x++;
 	}
 	if( kbd.KeyIsPressed( VK_LEFT ) )
 	{
-		pos.x -= speed * dt;
+		moveDir.x--;
 	}
 	if( kbd.KeyIsPressed( VK_DOWN ) )
 	{
-		pos.y += speed * dt;
+		moveDir.y++;
 	}
 	if( kbd.KeyIsPressed( VK_UP ) )
 	{
-		pos.y -= speed * dt;
+		moveDir.y--;
 	}
+	moveDir.Normalize();
+	pos += moveDir * speed* dt;
 }
 
 Vec2 Dude::GetPos() const
